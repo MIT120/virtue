@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'gatherer'
+
 ]
 
 MIDDLEWARE = [
@@ -83,10 +85,10 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "virtue",
-        "USER": "martinsavov",
-        "PASSWORD": "katinar4e",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "sample_db",
+        "USER": "django",
+        "PASSWORD": "password",
         "HOST": "localhost",
         "PORT": "",
     }
