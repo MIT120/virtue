@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .model import Pirate
+from .models import Pirate
 
 class PirateSerializer(serializers.ModelSerializer):
 
