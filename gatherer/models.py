@@ -45,7 +45,7 @@ class Room(models.Model):
   last_reading_time = models.DateField()
   nr_of_appliances = models.IntegerField()
 
-class Room_Readings(models.Model):
+class Room_Reading(models.Model):
   reading_time = models.DateField(primary_key=True)
   flat_id = models.ForeignKey(Flat, on_delete=models.CASCADE)
   room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
@@ -79,7 +79,7 @@ class Appliance(models.Model):
     last_reading_time = models.DateField()
 
 
-class Appliance_Readings(models.Model):
+class Appliance_Reading(models.Model):
     reading_time = models.DateField(primary_key=True)
     flat_id = models.ForeignKey(Flat, on_delete=models.CASCADE, max_length=45)
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE, max_length=45)
@@ -88,16 +88,16 @@ class Appliance_Readings(models.Model):
     appliance_energy_consumed = models.FloatField(null=True)
 
 class Sensor(models.Model):
-		sensor_id = models.AutoField(primary_key=True)
-		sensor_name = models.CharField(max_length=45)
-		sensor_function = models.CharField(max_length=200)
+	sensor_id = models.AutoField(primary_key=True)
+	sensor_name = models.CharField(max_length=45)
+	sensor_function = models.CharField(max_length=200)
+
+class Unit(models.Model):
+    unit_id = models.IntegerField(primary_key=True)
+    unit_for = models.CharField(max_length=45)
+    unit = models.CharField(max_length=45)
 
 class Sensor_Reading(models.Model):
-		sensor_id = models.Foreign_key(Sensor, on_delete=models.CASCADE, primary_key=True)
-		unit_id = models.Foreign_key(Units, on_delete=models.CASCADE, primary_key=True)
-		which_appliance = models.CharField(max_length=45)
-
-class Units(models.Model):
-		unit_id = models.IntegerField(primary_key=True)
-		unit_for = models.CharField(max_length=45)
-		unit = models.CharField(max_length=45)
+	sensor_id = models.ForeignKey(Sensor, on_delete=models.CASCADE, primary_key=True)
+	unit_id = models.ForeignKey(Unit, on_delete=models.CASCADE, primary_key=True)
+	which_appliance = models.CharField(max_length=45)
