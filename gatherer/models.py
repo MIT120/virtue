@@ -86,3 +86,18 @@ class Appliance_Readings(models.Model):
     appliance_id = models.ForeignKey(Appliance, on_delete=models.CASCADE, max_length=45)
     appliance_type_id = models.ForeignKey(List_Of_All_Appliance_in_building, on_delete=models.CASCADE)
     appliance_energy_consumed = models.FloatField(null=True)
+
+class Sensor(models.Model):
+		sensor_id = models.AutoField(primary_key=True)
+		sensor_name = models.CharField(max_length=45)
+		sensor_function = models.CharField(max_length=200)
+
+class Sensor_Reading(models.Model):
+		sensor_id = models.Foreign_key(Sensor, on_delete=models.CASCADE, primary_key=True)
+		unit_id = models.Foreign_key(Units, on_delete=models.CASCADE, primary_key=True)
+		which_appliance = models.CharField(max_length=45)
+
+class Units(models.Model):
+		unit_id = models.IntegerField(primary_key=True)
+		unit_for = models.CharField(max_length=45)
+		unit = models.CharField(max_length=45)
