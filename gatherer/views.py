@@ -2,8 +2,8 @@ from django.shortcuts import render, HttpResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import PirateSerializer
-from .models import Pirate
+from .serializers import PirateSerializer, SensorSerializer, BuildingSerializer, WeatherSerializer, FlatSerializer, UnitsSelrializer, ApplianceSelrializer , List_Of_All_Appliance_in_buildingSelrializer , Appliance_ReadingSelrializer
+from .models import Pirate, Sensor, Building, Weather, Flat, Room_Reading, Room, Sensor_Reading, Unit, Appliance, List_Of_All_Appliance_in_building, Appliance_Reading
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from .serializers import PirateSerializer
@@ -30,4 +30,9 @@ class APIRootView(APIView):
     def post(self):
       pass
 
-  
+
+class APIGetPostUpdateDeleteSensors():
+    def get(self, request):
+        sensors = Sensor.objects.all()
+        serializer = SensorSelrializer(sensors, many=True)
+    
