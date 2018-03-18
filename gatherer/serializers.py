@@ -7,10 +7,10 @@ class PirateSerializer(serializers.ModelSerializer):
      model = Pirate
      fields = '__all__'
 
-class SensorSerializer(serializers.ModelSerializer):
+class SensorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Sensor
-        fields = ['sensor_id', 'sensor_name', 'sensor_function']
+        fields = ('sensor_name', 'sensor_function')
 
 
 
@@ -23,7 +23,7 @@ class Sensor_ReadingSerializer(serializers.ModelSerializer):
 class UnitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Unit
-        fields = ['unit_id', 'unit_for', 'unit']
+        fields = ['unit_for', 'unit']
 
 
 class ApplianceSerializer(serializers.ModelSerializer):
@@ -46,7 +46,7 @@ class Appliance_ReadingSerializer(serializers.ModelSerializer):
 class BuildingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Building
-        fields = ['building_id', 'city', 'street', 'postcode', 'country', 'nr_of_floors', 'building_name']
+        fields = '__all__'
 
 class FlatSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,7 +61,7 @@ class Room_ReadingSerializer(serializers.ModelSerializer):
 class WeatherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weather
-        fields = ['weather_id', 'building_id', 'reading_time', 'temperature', 'hunidity', 'windspeed', 'wind_direction', 'solar_radiation', 'amount_of_CO2']
+        fields = '__all__'
 
 class BuildingSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import PirateSerializer, SensorSerializer, BuildingSerializer, WeatherSerializer, FlatSerializer, UnitSerializer, ApplianceSerializer , List_Of_All_Appliance_in_buildingSerializer , Appliance_ReadingSerializer
@@ -31,7 +31,17 @@ class APIRootView(APIView):
       pass
 
 
-class APIGetPostUpdateDeleteSensors():
-    def get(self, request):
-        sensors = Sensor.objects.all()
-        serializer = SensorSelrializer(sensors, many=True)
+class SensorViewSet(viewsets.ModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
+
+
+
+class BuildingViewSet(viewsets.ModelViewSet):
+    queryset = Building.objects.all()
+    serializer_class = BuildingSerializer
+
+
+class WeatherViewSet(viewsets.ModelViewSet):
+    queryset = Weather.objects.all()
+    serializer_class = WeatherSerializer
