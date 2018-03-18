@@ -13,4 +13,8 @@ admin.site.register(models.Room_Reading)
 admin.site.register(models.Sensor_Reading)
 admin.site.register(models.Appliance)
 admin.site.register(models.Appliance_Reading)
+admin.site.register(models.Person_Sleep)
+admin.site.register(models.Personal_details)
+
+
 # Register your models here.

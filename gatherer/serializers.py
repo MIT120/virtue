@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Sensor, Appliance, Appliance_Reading , Building, Flat, List_Of_All_Appliance_in_building, Room, Room_Reading, Unit, Weather, Sensor_Reading
+from .models import Sensor, Appliance, Appliance_Reading, Person_Sleep, Personal_details, Building, Flat, List_Of_All_Appliance_in_building, Room, Room_Reading, Unit, Weather, Sensor_Reading
 
 class SensorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -10,6 +10,27 @@ class Sensor_ReadingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor_Reading
         fields = "__all__"
+
+    def update(self, instance, validated_data):
+        # Maps for id->instance and id->data item.
+        book_mapping = {book.id: book for book in instance}
+        data_mapping = {item['id']: item for item in validated_data}
+
+        # Perform creations and updates.
+        ret = []
+        for book_id, data in data_mapping.items():
+            book = book_mapping.get(book_id, None)
+            if book is None:
+                ret.append(self.child.create(data))
+            else:
+                ret.append(self.child.update(book, data))
+
+        # Perform deletions.
+        for book_id, book in book_mapping.items():
+            if book_id not in data_mapping:
+                book.delete()
+
+        return ret
 
 class UnitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -49,6 +70,16 @@ class Room_ReadingSerializer(serializers.ModelSerializer):
 class WeatherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weather
+        fields = '__all__'
+
+class Person_SleepSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person_Sleep
+        fields = '__all__'
+
+class Personal_detailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Personal_details
         fields = '__all__'
 
 class BuildingSerializer(serializers.ModelSerializer):

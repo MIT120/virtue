@@ -29,6 +29,12 @@ router.register('appliance', views.ApplianceViewSet)
 router.register('room', views.RoomViewSet)
 router.register('room_reading', views.Room_ReadingViewSet)
 router.register('sensor_reading', views.Sensor_ReadingViewSet)
+router.register('personal_details', views.Personal_detailsViewSet)
+router.register('person_sleep', views.Person_SleepViewSet)
+router.register('unit', views.UnitViewSet)
+
+
+
 
 urlpatterns = [
   # path('sensors/', include('sensors.urls')),

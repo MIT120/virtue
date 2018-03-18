@@ -2,12 +2,15 @@ from django.shortcuts import render, HttpResponse
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import SensorSerializer, BuildingSerializer, WeatherSerializer, FlatSerializer,Room_ReadingSerializer, RoomSerializer, Sensor_ReadingSerializer, UnitSerializer, ApplianceSerializer , List_Of_All_Appliance_in_buildingSerializer , Appliance_ReadingSerializer
-from .models import Sensor, Building, Weather, Flat, Room_Reading, Room, Sensor_Reading, Unit, Appliance, List_Of_All_Appliance_in_building, Appliance_Reading
+from .serializers import SensorSerializer, BuildingSerializer, WeatherSerializer, Person_SleepSerializer, Personal_detailsSerializer, FlatSerializer,Room_ReadingSerializer, RoomSerializer, Sensor_ReadingSerializer, UnitSerializer, ApplianceSerializer , List_Of_All_Appliance_in_buildingSerializer , Appliance_ReadingSerializer
+from .models import Sensor, Building, Weather, Flat, Room_Reading, Room, Sensor_Reading, Unit, Appliance, List_Of_All_Appliance_in_building, Appliance_Reading, Person_Sleep, Personal_details
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 import json
 #views here.
+class SensorViewSet(viewsets.ModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
 
 class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
@@ -52,3 +55,11 @@ class Room_ReadingViewSet(viewsets.ModelViewSet):
 class Sensor_ReadingViewSet(viewsets.ModelViewSet):
     queryset = Sensor_Reading.objects.all()
     serializer_class = Sensor_ReadingSerializer
+
+class Person_SleepViewSet(viewsets.ModelViewSet):
+    queryset = Person_Sleep.objects.all()
+    serializer_class = Person_SleepSerializer
+
+class Personal_detailsViewSet(viewsets.ModelViewSet):
+    queryset = Personal_details.objects.all()
+    serializer_class = Personal_detailsSerializer
