@@ -24,6 +24,11 @@ router = routers.DefaultRouter()
 router.register('sensor', views.SensorViewSet)
 router.register('building', views.BuildingViewSet)
 router.register('weather', views.WeatherViewSet)
+router.register('appliance_reading', views.Appliance_ReadingViewSet)
+router.register('appliance', views.ApplianceViewSet)
+router.register('room', views.RoomViewSet)
+router.register('room_reading', views.Room_ReadingViewSet)
+router.register('sensor_reading', views.Sensor_ReadingViewSet)
 
 urlpatterns = [
   # path('sensors/', include('sensors.urls')),

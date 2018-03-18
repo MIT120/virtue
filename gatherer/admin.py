@@ -1,11 +1,16 @@
 from django.contrib import admin
-from . models import Sensor, Building, Weather
+from . import models
 
 class SensorAdmin(admin.ModelAdmin):
     list_display = ('sensor_name', 'sensor_function')
-    model = Sensor
+    model = models.Sensor
 
-admin.site.register(Sensor, SensorAdmin)
-admin.site.register(Building)
-admin.site.register(Weather)
+admin.site.register(models.Sensor, SensorAdmin)
+admin.site.register(models.Building)
+admin.site.register(models.Room)
+admin.site.register(models.Flat)
+admin.site.register(models.Room_Reading)
+admin.site.register(models.Sensor_Reading)
+admin.site.register(models.Appliance)
+admin.site.register(models.Appliance_Reading)
 # Register your models here.
