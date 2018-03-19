@@ -17,7 +17,7 @@ class SensorViewSet(viewsets.ModelViewSet):
     serializer_class = SensorSerializer
 
 class BuildingViewSet(viewsets.ModelViewSet):
-    queryset = Building.objects.all()
+    queryset = Building.objects.all()    
     serializer_class = BuildingSerializer
 
 class WeatherViewSet(viewsets.ModelViewSet):

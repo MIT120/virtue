@@ -21,11 +21,13 @@ from . import views
 
 
 router = routers.DefaultRouter()
-router.register('sensor', views.SensorViewSet)
 router.register('building', views.BuildingViewSet)
+router.register('sensor', views.SensorViewSet)
 router.register('weather', views.WeatherViewSet)
 router.register('appliance_reading', views.Appliance_ReadingViewSet)
 router.register('appliance', views.ApplianceViewSet)
+router.register('appliances_in_building', views.List_Of_All_Appliance_in_buildingViewSet)
+router.register('flat', views.FlatViewSet)
 router.register('room', views.RoomViewSet)
 router.register('room_reading', views.Room_ReadingViewSet)
 router.register('sensor_reading', views.Sensor_ReadingViewSet)
@@ -37,6 +39,5 @@ router.register('unit', views.UnitViewSet)
 
 
 urlpatterns = [
-  # path('sensors/', include('sensors.urls')),
   path('', include(router.urls))
 ]
