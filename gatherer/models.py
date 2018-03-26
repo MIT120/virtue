@@ -80,7 +80,8 @@ class Appliance_Reading(TimeStampedModel):
     appliance_id = models.ForeignKey(Appliance, on_delete=models.CASCADE, max_length=45)
     appliance_type_id = models.ForeignKey(List_Of_All_Appliance_in_building, on_delete=models.CASCADE)
     appliance_energy_consumed = models.FloatField(null=True)
-    water_reading = models.FloatField(null=True)
+    cold_water_reading = models.FloatField(null=True)
+    hot_water_reading = models.FloatField(null=True)
 
 class Sensor(models.Model):
 	sensor_name = models.CharField(max_length=45)
@@ -105,14 +106,12 @@ class Personal_details(TimeStampedModel):
     middle_name = models.CharField(max_length=45, null=True)
     gender = models.CharField(max_length=1, choices=ENUMGENDER)
     age = models.IntegerField()
-    hobby = models.CharField(max_length=45, null=True)
     email = models.CharField(max_length=45, null=True)
     phone_nr = models.CharField(max_length=45, null=True)
 
 class Person_Sleep(TimeStampedModel):
-  personId = models.OneToOneField(Personal_details, on_delete=models.CASCADE)
-  sleep_id = models.IntegerField(primary_key=True)
-  flat_id = models.OneToOneField(Flat, on_delete=models.CASCADE)
-  sleep_from = models.DateTimeField()
-  sleep_till = models.DateTimeField()
-  duration = models.TimeField()
+     personId = models.OneToOneField(Personal_details, on_delete=models.CASCADE)
+     flat_id = models.OneToOneField(Flat, on_delete=models.CASCADE)
+     sleep_from = models.DateTimeField()
+     sleep_till = models.DateTimeField()
+     duration = models.TimeField()
