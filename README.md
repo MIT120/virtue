@@ -35,7 +35,7 @@
 ## Development environment setup
 1. Install all requirments run command in the project directory ```pip install -r requirements.txt```
 2. Setting up database, add this code to **setings.py**  
-``
+```
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -46,4 +46,7 @@ DATABASES = {
         "PORT": "",
     }
 }
-`` Make migrations for database 
+```
+3. Make migrations for database ```python manage.py makemigrations``` 
+4. Migrate to **models.py** with command ```python manage.py migrate```
+5. Run a the test server with command ```python manage.py runserver``` this will run the server on the default *port 8000* if that port is taken you can change the port that the test server runs on with ```python manage.py runserver 0.0.0.0:8090```
