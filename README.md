@@ -14,4 +14,6 @@
 </h2>
 
 #Setup
-##
+## Prerequisites for development enviorment
+1. Make sure you have installed `python` on your machine! [Download](https://www.python.org/downloads/)
+2. 
