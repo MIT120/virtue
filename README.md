@@ -34,7 +34,8 @@
         * coming soon!
 ## Development environment setup
 1. Install all requirments run command in the project directory ```pip install -r requirements.txt```
-2. Setting up database, add this code to **setings.py** ```
+2. Setting up database, add this code to **setings.py**  
+``
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -45,4 +46,4 @@ DATABASES = {
         "PORT": "",
     }
 }
-``` Make migrations for database 
+`` Make migrations for database 
