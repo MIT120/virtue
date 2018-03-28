@@ -47,6 +47,11 @@ DATABASES = {
     }
 }
 ```
-3. Make migrations for database ```python manage.py makemigrations``` 
-4. Migrate to **models.py** with command ```python manage.py migrate```
-5. Run a the test server with command ```python manage.py runserver``` this will run the server on the default *port 8000* if that port is taken you can change the port that the test server runs on with ```python manage.py runserver 0.0.0.0:8090```
+3. Check if the ```DEBUG = True``` is set in **setings.py**
+4. Make migrations for database ```python manage.py makemigrations``` 
+5. Migrate **models.py** to postgres with command ```python manage.py migrate```
+6. Run a the test server with command ```python manage.py runserver``` this will run the server on the default *port 8000* if that port is taken you can change the port that the test server runs on with ```python manage.py runserver 0.0.0.0:8090```
+## Production environment setup
+### Coming soon
+## Extending a **models.py** for database 
+1. 
