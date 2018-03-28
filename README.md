@@ -16,9 +16,17 @@
 #Setup
 ## Prerequisites for development enviorment
 1. Make sure you have installed `python` on your machine. [Download Python](https://www.python.org/downloads/)
-2. `pip` package manager is installed. If you have a version of `python 2 >= 2.7.9 or Python 3 >= 3.4` you will probably have ``pip`` installed if not [download `pip`](https://www.python.org/downloads/) and run ``` python get-pip.py```. For any problems [pip documentation](https://pip.pypa.io/en/stable/installing/)
-3. PostgreSQL is the database in use so make sure you have it installed.  
+2. `pip` package manager is installed. If you have a version of `python 2 >= 2.7.9 or Python 3 >= 3.4` you will probably have ``pip`` installed if not [download `pip`](https://www.python.org/downloads/) and in **Terminal** run ``` python get-pip.py```. If you have problems [pip documentation](https://pip.pypa.io/en/stable/installing/)
+3. This step is not mandatory but recommended is to make a *python virtual environment* ```sudo pip install virtualenv```
+    * Unix based operating systems  
+      * Installation of **virtualenv** ```sudo pip install virtualenv```
+      * Create a directory to hold the project ```mkdir ~/projectname```
+      * Create a virtual environment inside the project folder ```virtualenv nameofprojectenv```
+4. PostgreSQL is the database in use so make sure you have it installed.  
     * Unix based operating systems
-        *  updating system variables in **Terminal** command ``sudo apt-get update`` 
+        *  updating system variables via **Terminal** command ``sudo apt-get update`` 
         *  Installing **PostgreSQL** via **Terminal** command ``sudo apt-get install libpq-dev postgresql postgresql-contrib`` *updating system variables*
-        * 
+        *  Your operating system will make a default user name called ```postgres```  log in with the command ```sudo su - postgres``` 
+        *  Creating a new database ```CREATE DATABASE databasename```
+        *  Creating a new user ```CREATE USER *username* WITH PASSWORD *secret*```
+        *  To test if you have installed it correctly use command ```psql -U username -d databasename```
