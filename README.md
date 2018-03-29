@@ -33,7 +33,7 @@
     * Windows operationg systems
         *  Go to the PostgreSQL official website, download section for Windows http://www.postgresql.org/download/windows/
         *  Click on the download installer from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows
-        *  Choose the latest version to download. It takes few minutes to complete the download.
+        *  Choose the latest version to download. It takes few minutes to complete the download.
         *  If you need help with the installation process visit http://www.postgresqltutorial.com/install-postgresql/
         
 ## Development environment setup
