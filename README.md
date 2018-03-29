@@ -31,10 +31,11 @@
         *  Creating a new user ```CREATE USER username WITH PASSWORD 'secret'```
         *  To test if you have installed it correctly use command ```psql -U username -d databasename```
     * Windows operationg systems
-        *  The easiest way to install Postgres on Windows is using a program you can find here:        http://www.enterprisedb.com/products-services-training/pgdownload#windows
-
-        *  Choose the newest version available for your operating system. Download the installer, run it and then follow the instructions available here: http://www.postgresqltutorial.com/install-postgresql/. Take note of the installation directory as you will need it in the next step (typically, it's C:\Program Files\PostgreSQL\9.3).
-        
+        *  Go to the PostgreSQL official website, download section for Windows http://www.postgresql.org/download/windows/
+        *  Click on the download installer from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows
+        *  Choose the latest version to download. It takes few minutes to complete the download.
+        *  If you need help with the installation process visit http://www.postgresqltutorial.com/install-postgresql/
+        
 ## Development environment setup
 1. Install all requirments run command in the project directory ```pip install -r requirements.txt```
 2. Setting up database, add this code to **setings.py**  
