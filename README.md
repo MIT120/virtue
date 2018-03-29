@@ -22,6 +22,11 @@
       * Installation of **virtualenv** ```sudo pip install virtualenv```
       * Create a directory to hold the project ```mkdir ~/projectname```
       * Create a virtual environment inside the project folder ```virtualenv nameofprojectenv```
+    * Windows operating systems
+      * Installation of **virtualenv** ```pip install virtualenv```
+      * Installation of **virtualenvwrapper-win** ```pip install virtualenvwrapper-win```
+      * Navigate to the project folder.
+      * Create a virtual environment inside the project folder ```mkvirtualenv nameofprojecten
 4. PostgreSQL is the database in use so make sure you have it installed.  
     * Unix based operating systems
         *  updating system variables via **Terminal** command ``sudo apt-get update`` 
