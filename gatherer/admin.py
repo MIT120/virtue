@@ -1,5 +1,20 @@
 from django.contrib import admin
-from . models import Pirate
+from . import models
 
-admin.site.register(Pirate)
+class SensorAdmin(admin.ModelAdmin):
+    list_display = ('sensor_name', 'sensor_function')
+    model = models.Sensor
+
+admin.site.register(models.Sensor, SensorAdmin)
+admin.site.register(models.Building)
+admin.site.register(models.Room)
+admin.site.register(models.Flat)
+admin.site.register(models.Room_Reading)
+admin.site.register(models.Sensor_Reading)
+admin.site.register(models.Appliance)
+admin.site.register(models.Appliance_Reading)
+admin.site.register(models.Person_Sleep)
+admin.site.register(models.Personal_details)
+
+
 # Register your models here.

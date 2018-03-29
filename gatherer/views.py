@@ -1,33 +1,65 @@
 from django.shortcuts import render, HttpResponse
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import PirateSerializer
-from .models import Pirate
+from .serializers import SensorSerializer, BuildingSerializer, WeatherSerializer, Person_SleepSerializer, Personal_detailsSerializer, FlatSerializer,Room_ReadingSerializer, RoomSerializer, Sensor_ReadingSerializer, UnitSerializer, ApplianceSerializer , List_Of_All_Appliance_in_buildingSerializer , Appliance_ReadingSerializer
+from .models import Sensor, Building, Weather, Flat, Room_Reading, Room, Sensor_Reading, Unit, Appliance, List_Of_All_Appliance_in_building, Appliance_Reading, Person_Sleep, Personal_details
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
-from .serializers import PirateSerializer
 import json
-# Create your views here.
-class APIRootView(APIView):
+#views here.
+class SensorViewSet(viewsets.ModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
 
-#  def json_list(self, request):
- #   url = 'https://i886625.venus.fhict.nl/pirates.json'
-#    r = requests.get(url)
-#    json_data = r.json()
-#    json_pretty = json.dumps(json_data, sort_keys=True, indent=4)
+class SensorViewSet(viewsets.ModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
 
-#    context = {
-#        "json_pretty": json_pretty,
-#        }
-#    return render(request, "templates/json.html", context)
-    def get(self, request):
-        pirates = Pirate.objects.all()
-        serializer = PirateSerializer(pirates, many=True)
-        return Response(serializer.data)
+class BuildingViewSet(viewsets.ModelViewSet):
+    queryset = Building.objects.all()    
+    serializer_class = BuildingSerializer
 
+class WeatherViewSet(viewsets.ModelViewSet):
+    queryset = Weather.objects.all()
+    serializer_class = WeatherSerializer
 
-    def post(self):
-      pass
+class FlatViewSet(viewsets.ModelViewSet):
+    queryset = Flat.objects.all()
+    serializer_class = FlatSerializer
 
-  
+class UnitViewSet(viewsets.ModelViewSet):
+    queryset = Unit.objects.all()
+    serializer_class = UnitSerializer
+
+class ApplianceViewSet(viewsets.ModelViewSet):
+    queryset = Appliance.objects.all()
+    serializer_class = ApplianceSerializer
+
+class List_Of_All_Appliance_in_buildingViewSet(viewsets.ModelViewSet):
+    queryset = List_Of_All_Appliance_in_building.objects.all()
+    serializer_class = List_Of_All_Appliance_in_buildingSerializer
+
+class Appliance_ReadingViewSet(viewsets.ModelViewSet):
+    queryset = Appliance_Reading.objects.all()
+    serializer_class = Appliance_ReadingSerializer
+
+class RoomViewSet(viewsets.ModelViewSet):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
+
+class Room_ReadingViewSet(viewsets.ModelViewSet):
+    queryset = Room_Reading.objects.all()
+    serializer_class = Room_ReadingSerializer
+
+class Sensor_ReadingViewSet(viewsets.ModelViewSet):
+    queryset = Sensor_Reading.objects.all()
+    serializer_class = Sensor_ReadingSerializer
+
+class Person_SleepViewSet(viewsets.ModelViewSet):
+    queryset = Person_Sleep.objects.all()
+    serializer_class = Person_SleepSerializer
+
+class Personal_detailsViewSet(viewsets.ModelViewSet):
+    queryset = Personal_details.objects.all()
+    serializer_class = Personal_detailsSerializer
