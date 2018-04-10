@@ -18,6 +18,18 @@ from django.conf.urls import  url, include
 from django.contrib.auth.models import User
 from django.urls import path, re_path
 from rest_framework import routers, serializers, viewsets
+from appliance.views import ApplianceViewSet
+from appliance_reading.views import Appliance_ReadingViewSet
+from appliance_in_building.views import List_Of_All_Appliance_in_buildingViewSet
+from building.views import BuildingViewSet
+from flat.views import FlatViewSet
+from room.views import RoomViewSet
+from room_reading.views import Room_ReadingViewSet
+from person_sleep.views import Person_SleepViewSet
+from personal_details.views import Personal_detailsViewSet
+from sensor.views import SensorViewSet
+from sensor_reading.views import Sensor_ReadingViewSet
+from unit.views import UnitViewSet
 from weather.views import WeatherViewSet
 
 
@@ -34,27 +46,40 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 router = routers.DefaultRouter()
-router.register(r'', UserViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'weather', WeatherViewSet)
+router.register(r'appliance', ApplianceViewSet)
+router.register(r'appliance_reading', Appliance_ReadingViewSet)
+router.register(r'appliance_in_building', List_Of_All_Appliance_in_buildingViewSet)
+router.register(r'flat', FlatViewSet)
+router.register(r'building', BuildingViewSet)
+router.register(r'room', RoomViewSet)
+router.register(r'room_reading', Room_ReadingViewSet)
+router.register(r'sensor', SensorViewSet)
+router.register(r'sensor_reading', Sensor_ReadingViewSet)
+router.register(r'person_sleep', Person_SleepViewSet)
+router.register(r'personal_details', Personal_detailsViewSet)
+router.register(r'unit', UnitViewSet)
 
 #router.register(r'accounts', AccountViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('appliance/',include('appliance.urls')),
-    path('appliance_in_building/',include('appliance.urls')),
-    path('appliance_reading/',include('appliance_reading.urls')),
-    path('building/',include('building.urls')),
-    path('flat/',include('flat.urls')),
-    path('person_sleep/',include('person_sleep.urls')),
-    path('personal_details/',include('personal_details.urls')),
-    path('room/',include('room.urls')),
-    path('room_reading/',include('room_reading.urls')),
-    path('sensor/',include('sensor.urls')),
-    path('sensor_reading/',include('sensor_reading.urls')),
-    path('unit/',include('unit.urls')),
-    path('weather/',include('weather.urls')),
-    path('users/', include(router.urls)),
+    # path('admin/', admin.site.urls),
+    # path('appliance/',include('appliance.urls')),
+    # path('appliance_in_building/',include('appliance.urls')),
+    # path('appliance_reading/',include('appliance_reading.urls')),
+    # path('building/',include('building.urls')),
+    # path('flat/',include('flat.urls')),
+    # path('person_sleep/',include('person_sleep.urls')),
+    # path('personal_details/',include('personal_details.urls')),
+    # path('room/',include('room.urls')),
+    # path('room_reading/',include('room_reading.urls')),
+    # path('sensor/',include('sensor.urls')),
+    # path('sensor_reading/',include('sensor_reading.urls')),
+    # path('unit/',include('unit.urls')),
+    # path('weather/',include('weather.urls')),
+    path('', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
  ]
