@@ -45,7 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'gatherer',
+    'flat',
+    'building',
+    'room',
+    'sensor',
+    'unit',
+    'weather',
+    'appliance',
+    'appliance_in_building',
+    'appliance_reading',
+    'person_sleep',
+    'personal_details',
+    'room_reading',
+    'sensor_reading',
 
 ]
 
