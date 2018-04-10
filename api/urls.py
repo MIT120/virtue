@@ -65,7 +65,7 @@ router.register(r'unit', UnitViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     # path('appliance/',include('appliance.urls')),
     # path('appliance_in_building/',include('appliance.urls')),
     # path('appliance_reading/',include('appliance_reading.urls')),
